@@ -35,8 +35,8 @@
 var inputText = 'Presiden ke-7 RI, Joko Widodo mengatakan akan terus mendengarkan keluhan warga. Meskipun Jokowi tidak lagi menjabat sebagai presiden. Ada 622 pelanggaran dan serangan terhadap kebebasan sipil meliputi kebebasan berekspresi, berserikat, dan berkumpul secara damai. Jokowi dulu dan sekarang antara harapan dan kenyataan. Nawa Dosa Jokowi selama Dua Periode Menjabat Presiden. Merakyat, Gaya Kepemimpinan Jokowi. Diserang Netizen TikTok karena Sentil Jokowi, Buku-buku Najwa Shihab Dibakar. Pelanggaran HAM dalam sektor sumber daya alam dan pembangunan. Kontroversi Presiden Boleh Kampanye, Jokowi Dianggap Terlalu Ikut Campur Pemilu Kebijakan Jokowi membangun Indonesia sentris sudah sangat tepat, pembangunan tidak lagi hanya fokus di Jawa, melainkan juga ke seluruh wilayah Indonesia dari ujung barat hingga ujung timur. DINASTI POLITIK. RUU OMNIBUS LAW Cipta Kerja. TAPERA. Selama dua periode memimpin Indonesia, para ekonom sepakat bahwa Presiden Joko Widodo berhasil memperbanyak infrastruktur dan gencar menggaet investasi. Pernyataan Jokowi KONTRADIKTIF Soal Putusan MK. Namun warisan Jokowi di bidang pembangunan itu harus dibayar mahal dengan kemunduran demokrasi, kata pakar politik dan pegiat HAM. Bernafsu merevisi Undang-Undang KPK. DARI MERAKYAT JADI OLIGARKI. Menjelang akhir masa jabatannya, banyak yang menilai bahwa Jokowi telah berubah dari orang rakyat menjadi orang yang penuh kontradiksi sepanjang kariernya. GAYA BLUSUKAN. Jokowi diyakini mengintervensi Mahkamah Konstitusi (MK) melalui adik iparnya, Hakim MK Anwar Usman, untuk memutus perkara batas usia capres dalam UU Pemilu guna membuka ruang bagi Gibran untuk maju. ';
 var fontSizeMax = 29;
 var fontSizeMin = 15;
-var spacing = 20; // line height
-var kerning = 0.3; // between letters
+var spacing = 20; 
+var kerning = 0.3; 
 
 var fontSizeStatic = false; 
 var blackAndWhite = false;
@@ -49,7 +49,7 @@ var typeface;
 var hoverTypeface;
 
 var letterPositions = []; 
-var hoverRadius = 90; // Radius for hover effect
+var hoverRadius = 90; 
 
 function preload() {
   img = loadImage('data/imgTwo.jpg');
@@ -94,12 +94,12 @@ function drawText() {
 
     if (fontSizeStatic) {
       textSize(fontSizeMax);
-      fill(150); 
+      fill(255); 
     } else {
       var fontSize = map(greyscale, 0, 255, fontSizeMax, fontSizeMin);
       fontSize = max(fontSize, 1);
       textSize(fontSize);
-      fill(150); 
+      fill(255); 
     }
 
     var letter = inputText.charAt(counter);
@@ -128,15 +128,13 @@ function drawText() {
 }
 
 function draw() {
-  // Clear the canvas and redraw the text
   background(imgTwo, 437, 614);
   drawText();
 
-  // Highlight the letters within the hover radius
   for (let i = 0; i < letterPositions.length; i++) {
     let pos = letterPositions[i];
     if (dist(mouseX, mouseY, pos.x + pos.width / 2, pos.y) < hoverRadius) {
-      fill(255, 0, 0); // Change color on hover
+      fill(255, 10, 0); 
       textSize(18);
       text(pos.letter, pos.x, pos.y);
       
@@ -149,15 +147,15 @@ function mouseMoved() {
   for (let i = 0; i < letterPositions.length; i++) {
     let pos = letterPositions[i];
     if (dist(mouseX, mouseY, pos.x + pos.width / 2, pos.y) < hoverRadius) {
-      cursor(HAND); // Change cursor to hand
+      cursor(HAND);
       hovered = true;
       break;
     }
   }
   if (!hovered) {
-    cursor(ARROW); // Default cursor
+    cursor(ARROW); 
   }
-  redraw(); // Redraw the canvas to update the hover effect
+  redraw(); 
 }
 
 function mousePressed() {
